@@ -1,24 +1,42 @@
-<div class="panel panel-default">
-    
-  <div class="panel-heading">
-    メッセージ一覧
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+         メッセージ一覧
+      </div>
+      <div class="panel-body">
+        <% @messages.each do |message| %>
+        <span class="label label-pill label-success"><%= message.name %></span>
+        <%= message.body %>
+        <br>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <div class="panel-body">
-    <% @messages.each do |message| %>
-      <span class="label label-info"><%= message.name %></span>
-      <%= message.body %>
-      <br>
-    <% end %>
-  </div>
-  
 </div>
 
-<%= form_for(@message) do |f| %>
-  名前:
-  <%= f.text_field :name %>
-
-  内容:
-  <%= f.text_field :body %>
-  <%= f.submit class: "btn btn-sm btn-primary" %>
-<% end %>
+<div id="row">
+  <%= form_for(@message) do |f| %>
+    <div class="">
+      <label class="col-md-1 control-label">
+        名前
+      </label>
+      <div class="col-md-11">
+        <%= f.text_area :name, class: "form-control formstyle_taslink1" %>
+      </div>
+    </div>
+    <div class="">    
+      <label class="col-md-1 control-label">
+        内容
+      </label>
+      <div class="col-md-11">
+        <%= f.text_area :body, class: "form-control formstyle_taslink1" %>
+      </div>
+    </div>
+    <div class="">    
+      <div class="col-md-12">
+        <%= f.submit class: "btn btn-default btn-success btn-block formstyle_taslink2" %>
+      </div>
+    </div>
+  <% end %>
+</div>
