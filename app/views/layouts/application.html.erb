@@ -38,6 +38,12 @@
         <h1>MessageBoard</h1>
       </div>
       
+      <% if notice %>
+        <div class="alert alert-info">
+          <%= notice %>
+        </div>
+      <% end %>
+      
       <%= yield %>
       
     </div>
